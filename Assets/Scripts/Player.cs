@@ -77,7 +77,7 @@ public class Player : MonoBehaviour {
 	
 
 			//Maintains constant x speed
-			//rb.velocity =  new Vector2( speed * speedModifier,rb.velocity.y);
+			rb.velocity =  new Vector2( speed * speedModifier,rb.velocity.y);
 
 			//player will jump
 			if (Input.GetKey (KeyCode.W)) {
