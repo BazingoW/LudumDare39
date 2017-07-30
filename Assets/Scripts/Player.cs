@@ -9,6 +9,10 @@ public class Player : MonoBehaviour {
 	[Range(0,2)]
 	public int weapon=0;
 
+	public Transform weaponPlace;
+
+	public GameObject[] weaponGO;
+
 	public float[] weaponCd= {0.2f,0.3f,0.1f};
 
 	bool alive = true;
@@ -25,12 +29,19 @@ public class Player : MonoBehaviour {
 
 	public float jumpForce=20;
 
-	public int souls;
+	public float souls=100;
+
+	[Tooltip("Souls/Ssecond")]
+	public float soulDecay=5;
+
+	Animator anim;
 
 	Rigidbody2D rb;
 	CapsuleCollider2D capsule;
 
 	public bool grounded;
+	bool crouched=false;
+
 
 	public Transform shootPos;
 	public GameObject bulletFab;
@@ -42,9 +53,11 @@ public class Player : MonoBehaviour {
 
 	public GameManager gm;
 
+	public bool prologueMode=false;
+
 	// Use this for initialization
 	void Start () {
-
+		anim = GetComponent<Animator> ();
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager>();
 		rb = GetComponent<Rigidbody2D> ();
 		capsule = GetComponent<CapsuleCollider2D> ();
@@ -61,15 +74,41 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (gm == null) {
+		//prologue stuff
+			return;
+		}
+
+		if (alive && gm.levelEnded == false) {
+		
+			souls -= soulDecay * Time.deltaTime;
+			gm.RefresheSoulMeter (souls);
+
+			if (souls < 0) {
+			
+				gm.DeathReason = 0;
+				Die (0);
+
+			}
+		}
+
+
 		if (alive) {
+
+
+
 
 			Physics2D.queriesStartInColliders = true;
 			Collider2D col = Physics2D.OverlapBox (groundedCoord.position, groundedBoxSize, 0);
 
-			if (col != null)
+			if (col != null) {
 				grounded = true;
-			else
+		
+			} else {
 				grounded = false;
+			}
+
+			anim.SetBool ("grounded", grounded);
 
 			Physics2D.queriesStartInColliders = false;
 
@@ -77,10 +116,10 @@ public class Player : MonoBehaviour {
 	
 
 			//Maintains constant x speed
-			rb.velocity =  new Vector2( speed * speedModifier,rb.velocity.y);
+			rb.velocity = new Vector2 (speed * speedModifier, rb.velocity.y);
 
 			//player will jump
-			if (Input.GetKey (KeyCode.W)) {
+			if (Input.GetKeyDown (KeyCode.W)&& crouched==false) {
 				if (grounded) {
 
 					rb.velocity = new Vector2 (rb.velocity.x, 0);
@@ -90,31 +129,38 @@ public class Player : MonoBehaviour {
 				}
 
 			}
+			if (Input.GetKeyDown (KeyCode.S) && grounded) {
 
-			if (Input.GetKeyDown (KeyCode.S)) {
+				//temporary
+				//transform.localScale*=2f;
+				capsule.offset = new Vector2 (-0.09179258f,-0.4478067f);
+				capsule.size = new Vector2 (0.6004305f, 0.5003587f);
+				crouched = true;
+				anim.SetBool ("crouch", true);
+			}
+
+			if (Input.GetKeyUp (KeyCode.S)) {
 		
 				//temporary
 				//transform.localScale*=0.5f;
 
-				capsule.offset = new Vector2 (0, -0.2094048f);
-				capsule.size = new Vector2 (1, 0.5811905f);
-			}
-			if (Input.GetKeyUp (KeyCode.S)) {
-		
-				//temporary
-				//transform.localScale*=2f;
-				capsule.offset = Vector2.zero;
-				capsule.size = Vector2.one;
+				capsule.offset = new Vector2 (-0.09179258f,0.05381589f);
+				capsule.size = new Vector2 (0.6004305f, 1.306337f);
+				crouched = false;
+				anim.SetBool ("crouch", false);
 			}
 
-			if (Input.GetKeyDown (KeyCode.K)) {
+			if (Input.GetKeyDown (KeyCode.K) && crouched==false) {
 				
 				if (weapon == 2 && bulletCount == 0)
 					weapon = 0;
 
 
 				//kill code
-				if (weapon == 0 && cdTimer>weaponCd[0]) {
+				if (weapon == 0 && cdTimer > weaponCd [0]) {
+
+					Instantiate (weaponGO [0], weaponPlace.position, Quaternion.identity,transform);
+
 					RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right * transform.localScale.x, attackDistance);
 
 					if (hit.collider != null) {
@@ -124,10 +170,12 @@ public class Player : MonoBehaviour {
 						prsn.Die ();
 
 					}
-					cdTimer=0;
+					cdTimer = 0;
 
-				} else if (weapon == 2 && cdTimer>weaponCd[2] ) {
+				} else if (weapon == 2 && cdTimer > weaponCd [2]) {
 				
+					Instantiate (weaponGO [2], weaponPlace.position, Quaternion.identity,transform);
+
 					GameObject bullet = Instantiate (bulletFab, shootPos.position, Quaternion.identity);
 
 
@@ -139,11 +187,13 @@ public class Player : MonoBehaviour {
 					if (bulletCount < 1)
 						weapon = 0;
 					//bullet.GetComponent<Rigidbody2D> ().velocity = Vector2.right * 1;
-					cdTimer=0;
+					cdTimer = 0;
 
-				} else if (weapon == 1&& cdTimer>weaponCd[1]) {
+				} else if (weapon == 1 && cdTimer > weaponCd [1]) {
 
-					RaycastHit2D[] hits= Physics2D.RaycastAll (transform.position, Vector2.right * transform.localScale.x, attackDistanceKatana);
+					Instantiate (weaponGO [1], weaponPlace.position, Quaternion.identity,transform);
+
+					RaycastHit2D[] hits = Physics2D.RaycastAll (transform.position, Vector2.right * transform.localScale.x, attackDistanceKatana);
 
 					foreach (var item in hits) {
 						person prsn = item.collider.gameObject.GetComponent<person> ();
@@ -152,33 +202,58 @@ public class Player : MonoBehaviour {
 					}
 
 
-					cdTimer=0;
+					cdTimer = 0;
 				}
 
 
 			}
 
 			cdTimer += Time.deltaTime;
-		}else
+		} else {
 
-		if (Input.GetKeyDown (KeyCode.R)) {
+			//set souls to zero
+			souls = 0;
+			gm.RefresheSoulMeter (souls);
+
+			if (Input.GetKeyDown (KeyCode.R)) {
 
 				gm.RestartScene ();
+			}
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
+		if (alive == false)
+			return;
+
 		if (col.collider.tag == "PersonBad") {
 		
-			Die ();
+			Die (2);
+		} else if (col.collider.tag == "Deadly") {
+		
+			Die (4);
+		}
+		else if (col.collider.tag == "Spikes") {
+
+			Die (5);
 		}
 	}
 
-	public void Die(){
-	
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.tag == "End") {
+			gm.LevelEnded();
+		}
+
+	}
+
+	public void Die(int i=0){
+		gm.DeathReason = i;
 		Debug.Log ("You Died Press R to Restart");
 		alive = false;
+
+		gm.DeathStuff ();
 	}
 
 	void OnDrawGizmos()
@@ -189,6 +264,15 @@ public class Player : MonoBehaviour {
 		Gizmos.DrawCube (groundedCoord.transform.position, groundedBoxSize);
 
 		Gizmos.DrawLine (transform.position, transform.position + Vector3.right * attackDistanceKatana);
+	}
+
+	public void AddSouls(float soulAmount)
+	{
+		souls += soulAmount;
+
+		if (prologueMode == true) {
+			gm.LevelEnded ();
+		} 
 	}
 
 }

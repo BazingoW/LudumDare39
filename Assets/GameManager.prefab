@@ -52,18 +52,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ae83d2f6f261442957ffa3716faba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathReason:
+  - YOU RAN OUT OF POWER
+  - YOU FELL TO YOUR DEATH
+  - YOU GOT HIT BY A BADDIE
+  - YOU HEADBUTTED A WALL
   canvas: {fileID: 0}
+  playercmp: {fileID: 0}
   bullUIPos: {fileID: 0}
   bullUIs: []
-  offset: 120
+  offset: 30
   bulletUI: {fileID: 1930566800563298, guid: 327a93b0bfe17ca45bd698a2d826c841, type: 2}
+  levelEnded: 0
+  soulMeter: {fileID: 0}
+  nextScene: 1
+  DeathReason: 0
+  deathScreen: {fileID: 0}
+  deathReasonTxt: {fileID: 0}
 --- !u!114 &114719361913802874
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1735748755049474}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd35c8d3c8b85034c8737da790136b93, type: 3}
   m_Name: 

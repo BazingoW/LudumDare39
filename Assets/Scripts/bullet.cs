@@ -21,7 +21,8 @@ public class bullet : MonoBehaviour {
 
 
 			person prsn = col.gameObject.GetComponent<person> ();
-			player.souls += prsn.souls;
+	
+			player.AddSouls (prsn.souls);
 			prsn.Die ();
 		}
 	}

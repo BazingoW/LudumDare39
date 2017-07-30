@@ -6,6 +6,8 @@ public class triggerEnemies : MonoBehaviour {
 
 	public GameObject enemy;
 
+	public float enemySpeed=-1;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -22,7 +24,10 @@ public class triggerEnemies : MonoBehaviour {
 
 		if (coll.tag == "Player") {
 		
-			Instantiate (enemy, transform.GetChild (0).transform.position, Quaternion.identity);
+			GameObject enem = (GameObject)Instantiate (enemy, transform.GetChild (0).transform.position, Quaternion.identity);
+
+			if(enem.GetComponent<person> ()!=null)
+				enem.GetComponent<person> ().speed = -1;
 		}
 	}
 
