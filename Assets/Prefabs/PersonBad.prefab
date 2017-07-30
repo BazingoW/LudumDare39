@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50175561379242506}
   - component: {fileID: 114742736984272714}
   - component: {fileID: 95600528286434650}
+  - component: {fileID: 82118363755190246}
   m_Layer: 10
   m_Name: PersonBad
   m_TagString: PersonBad
@@ -79,6 +80,86 @@ CapsuleCollider2D:
   m_Offset: {x: -0.16062832, y: 0.093268394}
   m_Size: {x: 0.45075417, y: 1.829052}
   m_Direction: 0
+--- !u!82 &82118363755190246
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728159720933440}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.269
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95600528286434650
 Animator:
   serializedVersion: 3
@@ -116,6 +197,10 @@ MonoBehaviour:
   jumpForce: 200
   anim: {fileID: 0}
   player: {fileID: 0}
+  sounds:
+  - {fileID: 8300000, guid: 27c23b42672c59944a6da89aec67aaac, type: 3}
+  - {fileID: 8300000, guid: ff733a94886ebc7409d89bb59916cc28, type: 3}
+  audioS: {fileID: 0}
 --- !u!212 &212326722949439186
 SpriteRenderer:
   m_ObjectHideFlags: 1

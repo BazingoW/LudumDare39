@@ -13,7 +13,7 @@ public class backtomain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.K)) {
-			SceneManager.LoadScene (3);
+			SceneManager.LoadScene (0);
 		}
 	}
 }

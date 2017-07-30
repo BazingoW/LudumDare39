@@ -23,10 +23,14 @@ public class person : MonoBehaviour {
 	public GameObject player;
 	float startingXscale;
 
+	public AudioClip[] sounds;
+	public AudioSource audioS;
+
 	Vector3 lastPos;
 
 	// Use this for initialization
 	void Start () {
+		audioS = GetComponent<AudioSource> ();
 		anim = GetComponent<Animator> ();
 		rb = GetComponent<Rigidbody2D> ();
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -49,6 +53,9 @@ public class person : MonoBehaviour {
 			Collider2D[] hits = Physics2D.OverlapCircleAll (transform.position, radius);
 			foreach (Collider2D h in hits)
 				if (h.gameObject == player) {
+
+					//PlaySound (0);
+
 					rb.velocity = new Vector2 (speed * speedModifier, rb.velocity.y);
 					if (jump) {
 						jump = false;
@@ -68,16 +75,18 @@ public class person : MonoBehaviour {
 	}
 	public void Die()
 	{
-		
+		PlaySound (1);
 		lives--;
 
 		if(lives<1)
 		{
-
+			GetComponent<CapsuleCollider2D> ().enabled = false;
+			rb.velocity = Vector2.zero;
+			rb.AddForce (new Vector2 (Random.Range (-100, 100), 400));
 			//temporary
-			Destroy (this.gameObject,0.1f);
+			Destroy (this.gameObject,.5f);
 			gameObject.tag="Untagged";
-
+			anim.enabled = false;
 		}
 
 	}
@@ -87,6 +96,13 @@ public class person : MonoBehaviour {
 		Gizmos.color = Color.green;
 		Gizmos.DrawWireSphere (transform.position, radius);
 
+
+	}
+
+	void PlaySound(int i)
+	{
+		audioS.clip = sounds [i];
+		audioS.Play ();
 
 	}
 }

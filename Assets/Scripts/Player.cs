@@ -6,6 +6,11 @@ public class Player : MonoBehaviour {
 	//0 for knife
 	//1 for katana/sword
 	//2 for pistol
+
+	public AudioClip[] sounds;
+
+	public AudioSource audioS;
+
 	[Range(0,2)]
 	public int weapon=0;
 
@@ -57,6 +62,7 @@ public class Player : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		audioS = GetComponent<AudioSource> ();
 		anim = GetComponent<Animator> ();
 		gm = GameObject.FindGameObjectWithTag ("GameManager").GetComponent<GameManager>();
 		rb = GetComponent<Rigidbody2D> ();
@@ -124,13 +130,13 @@ public class Player : MonoBehaviour {
 
 					rb.velocity = new Vector2 (rb.velocity.x, 0);
 					rb.AddForce (Vector2.up * jumpForce);
-			
+					PlaySound (3);
 			
 				}
 
 			}
 			if (Input.GetKeyDown (KeyCode.S) && grounded) {
-
+				PlaySound (5);
 				//temporary
 				//transform.localScale*=2f;
 				capsule.offset = new Vector2 (-0.09179258f,-0.4478067f);
@@ -143,6 +149,8 @@ public class Player : MonoBehaviour {
 		
 				//temporary
 				//transform.localScale*=0.5f;
+
+				PlaySound (6);
 
 				capsule.offset = new Vector2 (-0.09179258f,0.05381589f);
 				capsule.size = new Vector2 (0.6004305f, 1.306337f);
@@ -164,12 +172,13 @@ public class Player : MonoBehaviour {
 					RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right * transform.localScale.x, attackDistance);
 
 					if (hit.collider != null) {
-
+						
 						person prsn = hit.collider.gameObject.GetComponent<person> ();
 						souls += prsn.souls;
 						prsn.Die ();
-
+					
 					}
+						PlaySound (9);
 					cdTimer = 0;
 
 				} else if (weapon == 2 && cdTimer > weaponCd [2]) {
@@ -189,7 +198,11 @@ public class Player : MonoBehaviour {
 					//bullet.GetComponent<Rigidbody2D> ().velocity = Vector2.right * 1;
 					cdTimer = 0;
 
+					PlaySound (7);
+
 				} else if (weapon == 1 && cdTimer > weaponCd [1]) {
+
+					PlaySound (8);
 
 					Instantiate (weaponGO [1], weaponPlace.position, Quaternion.identity,transform);
 
@@ -199,6 +212,8 @@ public class Player : MonoBehaviour {
 						person prsn = item.collider.gameObject.GetComponent<person> ();
 						souls += prsn.souls;
 						prsn.Die ();
+
+						PlaySound (11);
 					}
 
 
@@ -228,17 +243,17 @@ public class Player : MonoBehaviour {
 			return;
 
 		if (col.collider.tag == "PersonBad") {
-		
+			PlaySound (0);
 			Die (2);
 		} else if (col.collider.tag == "Deadly") {
-		
+			PlaySound (4);
 			Die (4);
 		}
 		else if (col.collider.tag == "Spikes") {
-
+			PlaySound (1);
 			Die (5);
 		}else if (col.collider.tag == "Boulder") {
-
+			PlaySound (1);
 			Die (5);
 		}
 	}
@@ -276,6 +291,13 @@ public class Player : MonoBehaviour {
 		if (prologueMode == true) {
 			gm.LevelEnded ();
 		} 
+	}
+
+	void PlaySound(int i)
+	{
+		audioS.clip = sounds [i];
+		audioS.Play ();
+
 	}
 
 }

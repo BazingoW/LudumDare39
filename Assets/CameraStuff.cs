@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraStuff : MonoBehaviour {
 
+
+
 	public GameObject player;
 	public Vector2 offset;
 

@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 61920302327834804}
   m_Layer: 0
   m_Name: MetalRect
-  m_TagString: Deadly
+  m_TagString: Boulder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

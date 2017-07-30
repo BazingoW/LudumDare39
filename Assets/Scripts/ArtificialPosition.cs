@@ -1,4 +1,7 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
+
+
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -65,3 +68,5 @@ public class ArtificialPosition : MonoBehaviour
 
     #endregion Private Methods
 }
+
+#endif

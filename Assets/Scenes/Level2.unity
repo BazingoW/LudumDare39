@@ -20967,7 +20967,7 @@ Prefab:
     - target: {fileID: 114370102540379652, guid: f36dc7c0cafa8c948854e44b1ee3e426,
         type: 2}
       propertyPath: deathReason.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4446227881301964, guid: f36dc7c0cafa8c948854e44b1ee3e426, type: 2}
       propertyPath: m_LocalPosition.x
@@ -21034,11 +21034,16 @@ Prefab:
     - target: {fileID: 114370102540379652, guid: f36dc7c0cafa8c948854e44b1ee3e426,
         type: 2}
       propertyPath: nextScene
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114370102540379652, guid: f36dc7c0cafa8c948854e44b1ee3e426,
         type: 2}
       propertyPath: deathReason.Array.data[4]
+      value: YOU GOT SMASHED
+      objectReference: {fileID: 0}
+    - target: {fileID: 114370102540379652, guid: f36dc7c0cafa8c948854e44b1ee3e426,
+        type: 2}
+      propertyPath: deathReason.Array.data[5]
       value: YOU GOT SMASHED
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -44907,11 +44912,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4544337258955198, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.7
+      value: -1.55
       objectReference: {fileID: 0}
     - target: {fileID: 4544337258955198, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.199
+      value: -7.68
       objectReference: {fileID: 0}
     - target: {fileID: 4544337258955198, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
       propertyPath: m_LocalPosition.z

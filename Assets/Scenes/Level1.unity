@@ -8720,7 +8720,7 @@ Prefab:
     - target: {fileID: 114370102540379652, guid: f36dc7c0cafa8c948854e44b1ee3e426,
         type: 2}
       propertyPath: nextScene
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f36dc7c0cafa8c948854e44b1ee3e426, type: 2}
