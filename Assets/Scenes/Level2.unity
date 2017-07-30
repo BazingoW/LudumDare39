@@ -28293,6 +28293,11 @@ Prefab:
       propertyPath: m_Name
       value: PersonBad (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114742736984272714, guid: bb87b05dcee887a4ebfeba9658058e60,
+        type: 2}
+      propertyPath: souls
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb87b05dcee887a4ebfeba9658058e60, type: 2}
   m_IsPrefabParent: 0
@@ -44912,11 +44917,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4544337258955198, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.55
+      value: -12.6
       objectReference: {fileID: 0}
     - target: {fileID: 4544337258955198, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.68
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 4544337258955198, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
       propertyPath: m_LocalPosition.z

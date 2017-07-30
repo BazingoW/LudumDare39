@@ -5,10 +5,10 @@ using UnityEngine;
 public class jumperblock : MonoBehaviour {
 
 	public	Vector2 ForceApplied=Vector2.up*10;
-
+	public AudioSource AudioS;
 	// Use this for initialization
 	void Start () {
-		
+		AudioS = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -23,6 +23,8 @@ public class jumperblock : MonoBehaviour {
 		   col.collider.tag == "PersonBad") {
 			col.collider.GetComponent<Rigidbody2D> ().velocity = new Vector2 (col.collider.GetComponent<Rigidbody2D> ().velocity.x, 0);
 			col.collider.GetComponent<Rigidbody2D> ().AddForce (ForceApplied);
+			if(col.collider.tag == "Player")
+			AudioS.Play ();
 		}
 	}
 }

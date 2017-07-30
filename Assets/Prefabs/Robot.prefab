@@ -317,6 +317,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4d6c2cc8215d6ef42ae26831e57240b5, type: 3}
   - {fileID: 8300000, guid: 064f59debc60470449a559ba0892da6e, type: 3}
   - {fileID: 8300000, guid: c4b30d5db34bdc440931a3f3af7dfdb6, type: 3}
+  - {fileID: 8300000, guid: b6591d5f3e6a8964ea4c0c66672eab9a, type: 3}
   audioS: {fileID: 0}
   weapon: 0
   weaponPlace: {fileID: 4919127812293946}

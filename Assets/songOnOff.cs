@@ -25,23 +25,23 @@ public class songOnOff : MonoBehaviour {
 	void Update () {
 		
 	}
-
-	void OnLevelWasLoaded()
+	/*void OnLevelWasLoaded()
 	{Debug.Log ("Loaded");
 		if (soundOn==false) {
-		
+
 			Camera.main.transform.GetComponent<AudioListener> ().enabled = false;
 		}
-	}
+	}*/
+
 
 	public void SoundToggle()
 	{
 		soundOn = !soundOn;
 		if(text!=null)
 		if(soundOn)
-			text.text="Sound: ON";
+			text.text="Music: ON";
 		else
-			text.text="Sound: OFF";
+			text.text="Music: OFF";
 
 		audioS.enabled = soundOn;
 

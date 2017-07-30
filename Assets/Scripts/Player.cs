@@ -213,7 +213,7 @@ public class Player : MonoBehaviour {
 						souls += prsn.souls;
 						prsn.Die ();
 
-						PlaySound (11);
+
 					}
 
 
@@ -230,10 +230,12 @@ public class Player : MonoBehaviour {
 			souls = 0;
 			gm.RefresheSoulMeter (souls);
 
-			if (Input.GetKeyDown (KeyCode.R)) {
+		
+		}
 
-				gm.RestartScene ();
-			}
+		if (Input.GetKeyDown (KeyCode.R)) {
+
+			gm.RestartScene ();
 		}
 	}
 
@@ -246,6 +248,7 @@ public class Player : MonoBehaviour {
 			PlaySound (0);
 			Die (2);
 		} else if (col.collider.tag == "Deadly") {
+			
 			PlaySound (4);
 			Die (4);
 		}
@@ -254,14 +257,19 @@ public class Player : MonoBehaviour {
 			Die (5);
 		}else if (col.collider.tag == "Boulder") {
 			PlaySound (1);
-			Die (5);
+			Die (6);
+		}
+		else if (col.collider.tag == "Smasher") {
+			PlaySound (1);
+			Die (4);
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.tag == "End") {
+		if (col.tag == "End" && alive) {
 			gm.LevelEnded();
+			PlaySound (12);
 		}
 
 	}
@@ -270,6 +278,8 @@ public class Player : MonoBehaviour {
 		gm.DeathReason = i;
 		Debug.Log ("You Died Press R to Restart");
 		alive = false;
+		if(i==1)
+			PlaySound (4);
 
 		gm.DeathStuff ();
 	}
