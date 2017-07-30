@@ -3566,7 +3566,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4800887644594362, guid: 3d70bfa487034f94082ceaef2db56ef8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.46195
+      value: -5.69
       objectReference: {fileID: 0}
     - target: {fileID: 4800887644594362, guid: 3d70bfa487034f94082ceaef2db56ef8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6218,11 +6218,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4813595394910880, guid: bb87b05dcee887a4ebfeba9658058e60, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 101.53
+      value: 101.71
       objectReference: {fileID: 0}
     - target: {fileID: 4813595394910880, guid: bb87b05dcee887a4ebfeba9658058e60, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.934
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4813595394910880, guid: bb87b05dcee887a4ebfeba9658058e60, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6255,7 +6255,7 @@ Prefab:
     - target: {fileID: 114742736984272714, guid: bb87b05dcee887a4ebfeba9658058e60,
         type: 2}
       propertyPath: jump
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114742736984272714, guid: bb87b05dcee887a4ebfeba9658058e60,
         type: 2}
@@ -12894,6 +12894,16 @@ Prefab:
       propertyPath: weaponCd.Array.data[2]
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114925252749960772, guid: da2a102a3ee3c514c8bb645ffeb6be09,
+        type: 2}
+      propertyPath: souls
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114925252749960772, guid: da2a102a3ee3c514c8bb645ffeb6be09,
+        type: 2}
+      propertyPath: soulDecay
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
   m_IsPrefabParent: 0
@@ -14279,7 +14289,7 @@ Prefab:
     - target: {fileID: 114742736984272714, guid: bb87b05dcee887a4ebfeba9658058e60,
         type: 2}
       propertyPath: jump
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114742736984272714, guid: bb87b05dcee887a4ebfeba9658058e60,
         type: 2}

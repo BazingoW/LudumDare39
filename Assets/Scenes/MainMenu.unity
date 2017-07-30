@@ -464,7 +464,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 806992427}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2043834013}
+        m_MethodName: ChangeScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &806992427
@@ -1409,7 +1420,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2043834012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478990a7259d19543bf639c1b7e29631, type: 3}
+  m_Script: {fileID: 11500000, guid: fd501b5174904054eb5f2fb0d24ed334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &2043834014

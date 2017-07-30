@@ -272,7 +272,7 @@ public class Player : MonoBehaviour {
 	public void AddSouls(float soulAmount)
 	{
 		souls += soulAmount;
-
+		gm.RefresheSoulMeter (souls);
 		if (prologueMode == true) {
 			gm.LevelEnded ();
 		} 

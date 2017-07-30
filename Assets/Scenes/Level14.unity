@@ -5280,6 +5280,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114157971521638904, guid: 441de09d7f7222940895a8d615bc8e21,
+        type: 2}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 441de09d7f7222940895a8d615bc8e21, type: 2}
   m_IsPrefabParent: 0
@@ -14875,7 +14880,7 @@ Prefab:
     - target: {fileID: 114370102540379652, guid: f36dc7c0cafa8c948854e44b1ee3e426,
         type: 2}
       propertyPath: nextScene
-      value: 19
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f36dc7c0cafa8c948854e44b1ee3e426, type: 2}
@@ -25748,6 +25753,11 @@ Prefab:
       propertyPath: m_Name
       value: Person (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114157971521638904, guid: 441de09d7f7222940895a8d615bc8e21,
+        type: 2}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 441de09d7f7222940895a8d615bc8e21, type: 2}
   m_IsPrefabParent: 0
@@ -26891,11 +26901,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4544337258955198, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 83.6
+      value: 44.7
       objectReference: {fileID: 0}
     - target: {fileID: 4544337258955198, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: -3.94
       objectReference: {fileID: 0}
     - target: {fileID: 4544337258955198, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
       propertyPath: m_LocalPosition.z
@@ -26940,6 +26950,16 @@ Prefab:
         type: 2}
       propertyPath: weaponCd.Array.data[2]
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114925252749960772, guid: da2a102a3ee3c514c8bb645ffeb6be09,
+        type: 2}
+      propertyPath: souls
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114925252749960772, guid: da2a102a3ee3c514c8bb645ffeb6be09,
+        type: 2}
+      propertyPath: soulDecay
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da2a102a3ee3c514c8bb645ffeb6be09, type: 2}
