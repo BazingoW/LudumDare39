@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
 	public LayerMask ground;
 
 	public float speed=5;
-	float speedModifier=1;
+	public float speedModifier=1;
 
 	public float attackDistance = 1.2f;
 	public float attackDistanceKatana = 2f;
@@ -235,6 +235,9 @@ public class Player : MonoBehaviour {
 			Die (4);
 		}
 		else if (col.collider.tag == "Spikes") {
+
+			Die (5);
+		}else if (col.collider.tag == "Boulder") {
 
 			Die (5);
 		}

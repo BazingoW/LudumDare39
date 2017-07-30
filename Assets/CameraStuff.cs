@@ -11,6 +11,8 @@ public class CameraStuff : MonoBehaviour {
 
 	public bool Yfollow;
 
+	bool start= true;
+
 	public GameManager gm;
 
 	// Use this for initialization
@@ -24,12 +26,21 @@ public class CameraStuff : MonoBehaviour {
 	void Update () {
 		if ((transform.position.x -player.transform.position.x < offset.x && gm.levelEnded==false)||
 			(transform.position.x -player.transform.position.x < offset.x && player.GetComponent<Player>().prologueMode==true)) {
-		
+			start = false;
 			if(Yfollow==false)
-			transform.position = new Vector3 (player.transform.position.x + offset.x, transform.position.y, -10);
+				transform.position = new Vector3 (player.transform.position.x + offset.x, transform.position.y, -10);
 			else
 				transform.position = new Vector3 (player.transform.position.x + offset.x, player.transform.position.y+offset.y, -10);
 				
+		}
+
+		if (start == false) {
+		
+			if(Yfollow==false)
+				transform.position = new Vector3 (player.transform.position.x + offset.x, transform.position.y, -10);
+			else
+				transform.position = new Vector3 (player.transform.position.x + offset.x, player.transform.position.y+offset.y, -10);
+		
 		}
 	}
 }

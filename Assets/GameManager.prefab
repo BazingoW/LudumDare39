@@ -57,6 +57,9 @@ MonoBehaviour:
   - YOU FELL TO YOUR DEATH
   - YOU GOT HIT BY A BADDIE
   - YOU HEADBUTTED A WALL
+  - YOU GOT SMASHED
+  - YOU STABBED YO TOE
+  - YOU GOT SMASHED BY A TINY BOULDER
   canvas: {fileID: 0}
   playercmp: {fileID: 0}
   bullUIPos: {fileID: 0}
@@ -65,7 +68,7 @@ MonoBehaviour:
   bulletUI: {fileID: 1930566800563298, guid: 327a93b0bfe17ca45bd698a2d826c841, type: 2}
   levelEnded: 0
   soulMeter: {fileID: 0}
-  nextScene: 1
+  nextScene: 2
   DeathReason: 0
   deathScreen: {fileID: 0}
   deathReasonTxt: {fileID: 0}

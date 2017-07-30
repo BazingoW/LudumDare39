@@ -21,6 +21,7 @@ public class person : MonoBehaviour {
 	public Animator anim;
 
 	public GameObject player;
+	float startingXscale;
 
 	Vector3 lastPos;
 
@@ -29,15 +30,17 @@ public class person : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		rb = GetComponent<Rigidbody2D> ();
 		player = GameObject.FindGameObjectWithTag ("Player");
+		startingXscale = transform.localScale.x;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		if (transform.position.x - lastPos.x > 0)
-			GetComponent<SpriteRenderer> ().flipX = true;
+			transform.localScale = new Vector3 (-1*startingXscale, transform.localScale.y, transform.localScale.z);
 		else if (transform.position.x - lastPos.x < 0)
-			GetComponent<SpriteRenderer> ().flipX = false;
+			transform.localScale = new Vector3 (1*startingXscale, transform.localScale.y, transform.localScale.z);
+	
 
 		lastPos = transform.position;
 
